@@ -27,16 +27,24 @@ namespace ExtraUtils.Randomizer.Benchmark
             }
         }
 
+        private int samples = 1000;
+
         [Benchmark]
         public void CallConstructor()
         {
-            var s = new Sample1(10);
+            for(int i = 0; i < samples; i++)
+            {
+                var s = new Sample1(10);
+            }
         }
 
         [Benchmark]
         public void CallInlineConstructor()
         {
-            var s = new Sample2(10);
+            for (int i = 0; i < samples; i++)
+            {
+                var s = new Sample2(10);
+            }
         }
     }
 }

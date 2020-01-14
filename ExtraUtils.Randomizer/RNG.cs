@@ -61,7 +61,7 @@ namespace ExtraUtils.Randomizer
             {
                 unchecked
                 {
-                    return new RNG((uint)(Stopwatch.GetTimestamp() * 12345));
+                    return new RNG((uint)(Stopwatch.GetTimestamp() * 12347));
                 }
             }
         }
@@ -143,18 +143,10 @@ namespace ExtraUtils.Randomizer
         /// Gets a random long value from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
         /// </summary>
         /// <returns>A random long value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public long NextLong()
         {
-            unsafe
-            {
-                byte* buffer = stackalloc byte[8];
-                for(int i = 0; i < 8; i++)
-                {
-                    buffer[i] = (byte)(NextInt() & byte.MaxValue);
-                }
-
-                return *(long*)buffer;
-            }
+            return NextInt() + ((long)NextInt() << 32);
         }
 
         /// <summary>
@@ -267,18 +259,10 @@ namespace ExtraUtils.Randomizer
         /// Gets a random ulong value from 0 to 18,446,744,073,709,551,615.
         /// </summary>
         /// <returns>A random ulong value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong NextULong()
         {
-            unsafe
-            {
-                byte* buffer = stackalloc byte[8];
-                for (int i = 0; i < 8; i++)
-                {
-                    buffer[i] = (byte)(NextInt() & byte.MaxValue);
-                }
-
-                return *(ulong*)buffer;
-            }
+            return (ulong)NextInt() + ((ulong)NextInt() << 32);
         }
 
         /// <summary>
