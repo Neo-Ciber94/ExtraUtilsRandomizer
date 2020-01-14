@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtraUtils.Randomizer", "ExtraUtils.Randomizer\ExtraUtils.Randomizer.csproj", "{3DD921BC-99D4-496A-B508-265F39DF0156}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtraUtils.Randomizer.Benchmark", "ExtraUtils.Randomizer.Benchmark\ExtraUtils.Randomizer.Benchmark.csproj", "{560DC2B8-2B58-4D9B-8798-DBA56E99A1ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtraUtils.Randomizer.Benchmark", "ExtraUtils.Randomizer.Benchmark\ExtraUtils.Randomizer.Benchmark.csproj", "{560DC2B8-2B58-4D9B-8798-DBA56E99A1ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E36C197-1693-4D31-B99D-749260F2A263}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
