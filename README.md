@@ -46,6 +46,12 @@ public struct RNG
     public double NextDouble(double max);
     public double NextDouble(double min, double max);   
 
+    // Pseudorandom bool generator
+    public bool NextBool();
+
+    // Pseudorandom bit generator
+    public int NextBits(int bitsCount);
+
     // Pseudorandom char generators
     public char NextChar();
     public char NextChar(RandomCharKind charKind);

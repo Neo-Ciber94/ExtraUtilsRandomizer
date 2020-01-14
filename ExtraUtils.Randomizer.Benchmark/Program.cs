@@ -11,10 +11,10 @@ namespace ExtraUtils.Randomizer.Benchmark
     {
         static void Main()
         {
-            //for (long i = 0; i <= 1000; i++)
-            //{
-            //    Console.WriteLine(RNG.Default.NextULong());
-            //}
+            for (long i = 0; i <= 1000; i++)
+            {
+                Console.WriteLine(RNG.Default.NextBits(32));
+            }
         }
     }
 

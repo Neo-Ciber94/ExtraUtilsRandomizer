@@ -83,7 +83,7 @@ namespace ExtraUtils.Randomizer
         public RNG(int seed) : this((uint)seed){ }
 
         /// <summary>
-        /// Gets a random int value from -2,147,483,648 to 2,147,483,647.
+        /// Gets a pseudorandom int value from -2,147,483,648 to 2,147,483,647.
         /// </summary>
         /// <returns>A random int value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -93,7 +93,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random int value from 0 to max (inclusive).
+        /// Gets a pseudorandom int value from 0 to max (inclusive).
         /// </summary>
         /// <param name="max">The maximum value (inclusive).</param>
         /// <returns>A random int value.</returns>
@@ -104,7 +104,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random int value from min (inclusive) to max (inclusive).
+        /// Gets a pseudorandom int value from min (inclusive) to max (inclusive).
         /// </summary>
         /// <param name="min">The minimum value inclusive.</param>
         /// <param name="max">The maximum value inclusive.</param>
@@ -140,7 +140,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random long value from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
+        /// Gets a pseudorandom long value from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807.
         /// </summary>
         /// <returns>A random long value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -150,7 +150,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random long value between 0 and max (inclusive)
+        /// Gets a pseudorandom long value between 0 and max (inclusive)
         /// </summary>
         /// <param name="max">The maximun value inclusive.</param>
         /// <returns>A random long value.</returns>
@@ -162,7 +162,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random long value between min (inclusice) and max (inclusive)
+        /// Gets a pseudorandom long value between min (inclusice) and max (inclusive)
         /// </summary>
         /// <param name="min">The minimun value inclusive.</param>
         /// <param name="max">The maximun value inclusive.</param>
@@ -198,7 +198,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random long value from 0 to 4,294,967,295.
+        /// Gets a pseudorandom long value from 0 to 4,294,967,295.
         /// </summary>
         /// <returns>A random uint value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -208,7 +208,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random uint value between 0 and max (inclusive)
+        /// Gets a pseudorandom uint value between 0 and max (inclusive)
         /// </summary>
         /// <param name="max">The maximun value inclusive.</param>
         /// <returns>A random uint value.</returns>
@@ -220,7 +220,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random uint value between min (inclusice) and max (inclusive)
+        /// Gets a pseudorandom uint value between min (inclusice) and max (inclusive)
         /// </summary>
         /// <param name="min">The minimun value inclusive.</param>
         /// <param name="max">The maximun value inclusive.</param>
@@ -256,7 +256,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random ulong value from 0 to 18,446,744,073,709,551,615.
+        /// Gets a pseudorandom ulong value from 0 to 18,446,744,073,709,551,615.
         /// </summary>
         /// <returns>A random ulong value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -266,7 +266,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random ulong value between 0 and max (inclusive)
+        /// Gets a pseudorandom ulong value between 0 and max (inclusive)
         /// </summary>
         /// <param name="max">The maximun value inclusive.</param>
         /// <returns>A random ulong value.</returns>
@@ -278,7 +278,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random ulong value between min (inclusice) and max (inclusive)
+        /// Gets a pseudorandom ulong value between min (inclusice) and max (inclusive)
         /// </summary>
         /// <param name="min">The minimun value inclusive.</param>
         /// <param name="max">The maximun value inclusive.</param>
@@ -314,7 +314,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random double value between 0 (inclusive) and 1 (exclusive).
+        /// Gets a pseudorandom double value between 0 (inclusive) and 1 (exclusive).
         /// </summary>
         /// <returns>A random double value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -324,7 +324,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random double value between 0 and max (exclusive).
+        /// Gets a pseudorandom double value between 0 and max (exclusive).
         /// </summary>
         /// <param name="max">The maximum value exclusive.</param>
         /// <returns>A random double value.</returns>
@@ -336,7 +336,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random double value between min (inclusive) and max (exclusive).
+        /// Gets a pseudorandom double value between min (inclusive) and max (exclusive).
         /// </summary>
         /// <param name="min">The minimum value inclusive.</param>
         /// <param name="max">The maximum value exclusive.</param>
@@ -354,7 +354,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random float value between 0 (inclusive) and 1 (exclusive).
+        /// Gets a pseudorandom float value between 0 (inclusive) and 1 (exclusive).
         /// </summary>
         /// <returns>A random float value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -364,7 +364,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random float value between 0 and max (exclusive).
+        /// Gets a pseudorandom float value between 0 and max (exclusive).
         /// </summary>
         /// <param name="max">The maximum value exclusive.</param>
         /// <returns>A random float value.</returns>
@@ -376,7 +376,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random float value between min (inclusive) and max (exclusive).
+        /// Gets a pseudorandom float value between min (inclusive) and max (exclusive).
         /// </summary>
         /// <param name="min">The minimum value inclusive.</param>
         /// <param name="max">The maximum value exclusive.</param>
@@ -394,7 +394,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random <see langword="true"/> or <see langword="false"/>.
+        /// Gets a pseudorandom <see langword="true"/> or <see langword="false"/>.
         /// </summary>
         /// <returns>A random bool value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -404,7 +404,23 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random <see langword="char"/>.
+        /// Gets a pseudorandom <see langword="int"/> with 0 to 'bitCount' number of bits,
+        /// where bitsCount must be between 0 to 32.
+        /// </summary>
+        /// <param name="bitsCount">Max number of bits of the pseudorandom numbers</param>
+        /// <returns>A random int value with 0 to 'bitCount' number of bits.</returns>
+        public int NextBits(byte bitsCount)
+        {
+            int value = 0;
+            for (int i = 0; i < bitsCount; i++)
+            {
+                value |= Math.Abs(NextInt()) >> (32 - (i + 2));
+            }
+            return value;
+        }
+
+        /// <summary>
+        /// Gets a pseudorandom <see langword="char"/>.
         /// </summary>
         /// <returns>A random char value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -414,7 +430,7 @@ namespace ExtraUtils.Randomizer
         }
 
         /// <summary>
-        /// Gets a random <see langword="char"/>.
+        /// Gets a pseudorandom <see langword="char"/>.
         /// </summary>
         /// <param name="charKind">Types of the character.</param>
         /// <returns>A random char value.</returns>
