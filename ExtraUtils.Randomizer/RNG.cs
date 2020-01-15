@@ -41,7 +41,7 @@ namespace ExtraUtils.Randomizer
     }
 
     /// <summary>
-    /// A pseudorandom number generator.
+    /// A pseudorandom number generator using xorshift.
     /// </summary>
     public class RNG
     {
@@ -265,7 +265,7 @@ namespace ExtraUtils.Randomizer
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double NextDouble()
         {
-            return Math.Abs(NextState()) * (1.0 / int.MaxValue);
+            return (NextState() & int.MaxValue) * (1.0 / int.MaxValue);
         }
 
         /// <summary>
@@ -305,7 +305,7 @@ namespace ExtraUtils.Randomizer
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float NextFloat()
         {
-            return Math.Abs(NextState()) * (1f / int.MaxValue);
+            return (NextState() & int.MaxValue) * (1f / int.MaxValue);
         }
 
         /// <summary>
@@ -361,7 +361,7 @@ namespace ExtraUtils.Randomizer
             int value = 0;
             for (int i = 0; i < bitsCount; i++)
             {
-                value |= Math.Abs(NextInt()) >> (32 - (i + 2));
+                value |= (NextInt() & int.MaxValue) >> (32 - (i + 2));
             }
             return value;
         }
@@ -481,6 +481,7 @@ namespace ExtraUtils.Randomizer
 
         private int NextState()
         {
+            //Add a prime number to ensure non-zero state
             unchecked
             {
                 _state += 23457013;

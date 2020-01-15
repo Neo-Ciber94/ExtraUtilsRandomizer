@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ExtraUtils.Randomizer.Tests
 {
@@ -20,7 +21,7 @@ namespace ExtraUtils.Randomizer.Tests
         {
             var rng = new RNG(seed);
 
-            for(int i = 0; i < Iterations; i++)
+            for (int i = 0; i < Iterations; i++)
             {
                 Assert.InRange(rng.NextInt(), int.MinValue, int.MaxValue);
             }
@@ -185,7 +186,7 @@ namespace ExtraUtils.Randomizer.Tests
         public void NextDoubleTest()
         {
             var rng = RNG.Default;
-            for(int i = 0; i < Iterations; i++)
+            for (int i = 0; i < Iterations; i++)
             {
                 Assert.InRange(rng.NextDouble(), 0.0, 1.0);
             }
@@ -262,7 +263,7 @@ namespace ExtraUtils.Randomizer.Tests
             var rng = RNG.Default;
 
             List<bool> values = new List<bool>(iterations);
-            for(int i = 0; i < iterations; i++)
+            for (int i = 0; i < iterations; i++)
             {
                 values.Add(rng.NextBool());
             }
@@ -282,7 +283,7 @@ namespace ExtraUtils.Randomizer.Tests
         {
             var rng = RNG.Default;
 
-            for(int i = 0; i < Iterations; i++)
+            for (int i = 0; i < Iterations; i++)
             {
                 Assert.InRange(rng.NextBits(bitsCount), min, max);
             }
@@ -353,14 +354,14 @@ namespace ExtraUtils.Randomizer.Tests
             var chars = str.ToCharArray().Distinct().ToArray();
             int threshold = 5;
 
-            for(int i = 0; i < chars.Length; i++)
+            for (int i = 0; i < chars.Length; i++)
             {
                 char c = chars[i];
                 int repeatedCount = 0;
 
                 for (int j = 0; j < str.Length; j++)
                 {
-                    if(c == str[j])
+                    if (c == str[j])
                     {
                         repeatedCount++;
                     }
@@ -382,7 +383,7 @@ namespace ExtraUtils.Randomizer.Tests
             for (int i = 0; i < Iterations; i++)
             {
                 rng.NextBytes(span);
-                for(int j = 0; j < span.Length; j++)
+                for (int j = 0; j < span.Length; j++)
                 {
                     Assert.InRange(span[j], byte.MinValue, byte.MaxValue);
                 }
@@ -395,7 +396,7 @@ namespace ExtraUtils.Randomizer.Tests
         [InlineData(1000000, 4)]
         public void NextIntDistribuctionTest(int size, int threshold)
         {
-            for(int i = 0; i < 100; i++)
+            for (int i = 0; i < 100; i++)
             {
                 var rng = RNG.Default;
                 List<int> list = new List<int>(size);

@@ -3,7 +3,7 @@
 Contains the ``RNG`` struct that provides methods for generate pseudorandom
 numbers using **shift-register generators** or **xorshift**.
 
-------------------
+_________________________________________
 ### Implementation
 
 ```csharp
@@ -62,30 +62,29 @@ public struct RNG
     public void NextBytes(Span<byte> destination); 
 }
 ```
--------------
+_________________________________________
 
 ### Examples
 
 #### - Example #1
 ```csharp
+// RNG namespace
+using ExtraUtils.Randomizer;
+
 // Creates a new RNG with '123' as seed
 var rng = new RNG(123);
 
-// 4
-Console.WriteLine(rng.NextInt(0, 10));
-
-// -2443414909555492944 
-Console.WriteLine(rng.NextLong()); 
-
-// False
-Console.WriteLine(rng.NextBool()); 
-
-// 0.4347246039820484
-Console.WriteLine(rng.NextDouble());
+Console.WriteLine(rng.NextInt(0, 10));  // 4
+Console.WriteLine(rng.NextLong());      // -2443414909555492944 
+Console.WriteLine(rng.NextBool());      // False
+Console.WriteLine(rng.NextDouble());    // 0.4347246039820484
 ```
 
 #### - Example #2
 ```csharp
+// RNG namespace
+using ExtraUtils.Randomizer;
+
 // Creates a new RNG with '123' as seed
 var rng = new RNG(123);
 
@@ -94,7 +93,5 @@ Span<char> span = stackalloc char[10];
 
 // Fills the Span<char> with random characters
 rng.NextString(span);
-
-// F2WNYf2c5S
-Console.WriteLine(span.ToString());
+Console.WriteLine(span.ToString()); // F2WNYf2c5S
 ```

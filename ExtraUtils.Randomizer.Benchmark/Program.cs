@@ -15,13 +15,10 @@ namespace ExtraUtils.Randomizer.Benchmark
     {
         static void Main()
         {
-            var rng = new RNG(123);
-
-            Span<char> span = stackalloc char[10];
-
-            rng.NextString(span);
-
-            Console.WriteLine(span.ToString());
+            for(int i = 0; i < 100; i++)
+            {
+                Console.WriteLine(RNG.Default.NextDouble());
+            }
         }
     }
 
