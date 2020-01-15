@@ -7,7 +7,7 @@ namespace ExtraUtils.Randomizer
     /// <summary>
     /// Extensions for <see cref="RNG"/>.
     /// </summary>
-    public static class RNGExtensions
+    public static partial class RNGExtensions
     {
         /// <summary>
         /// Shuffles the elements in the list.

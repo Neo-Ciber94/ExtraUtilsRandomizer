@@ -33,7 +33,7 @@ namespace ExtraUtils.Randomizer
         /// <summary>
         /// Letters and numbers.
         /// </summary>
-        LetterAndDigit = Letter | Digit,
+        LetterOrDigit = Letter | Digit,
         /// <summary>
         /// Any character
         /// </summary>
@@ -43,7 +43,7 @@ namespace ExtraUtils.Randomizer
     /// <summary>
     /// A pseudorandom number generator.
     /// </summary>
-    public struct RNG
+    public class RNG
     {
         private uint _state;
 
@@ -151,7 +151,7 @@ namespace ExtraUtils.Randomizer
         /// <returns>A random long value.</returns>
         /// <exception cref="ArgumentOutOfRangeException">If max is negative.</exception>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public long NextLong(int max)
+        public long NextLong(long max)
         {
             return NextLong(0, max);
         }
@@ -356,6 +356,8 @@ namespace ExtraUtils.Randomizer
         /// <returns>A random int value with 0 to 'bitCount' number of bits.</returns>
         public int NextBits(byte bitsCount)
         {
+            Debug.Assert(bitsCount >= 0 && bitsCount <= 32);
+
             int value = 0;
             for (int i = 0; i < bitsCount; i++)
             {
@@ -371,7 +373,7 @@ namespace ExtraUtils.Randomizer
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public char NextChar()
         {
-            return NextChar(RandomCharKind.LetterAndDigit);
+            return NextChar(RandomCharKind.LetterOrDigit);
         }
 
         /// <summary>
