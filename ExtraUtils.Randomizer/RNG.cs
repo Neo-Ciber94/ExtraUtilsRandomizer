@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 namespace ExtraUtils.Randomizer
 {
@@ -117,26 +116,22 @@ namespace ExtraUtils.Randomizer
                 throw new ArgumentOutOfRangeException($"min > max: {min} > {max}");
             }
 
-            if(max == min)
-            {
-                return min;
-            }
+            long n = (long)max - min;
 
-            if((max & min) == 0)
+            if(n < int.MaxValue)
+            {
+                return (int)(NextDouble() * (n + 1)) + min;
+            }
+            else
             {
                 do
                 {
-                    int n = NextInt();
-
-                    if (n >= min && n <= max)
-                    {
-                        return n;
-                    }
+                    n = NextInt();
                 }
-                while (true);
+                while (n < min || n > max);
             }
 
-            return (int)(NextDouble() * ((max - min) + 1)) + min;
+            return (int)n;
         }
 
         /// <summary>
@@ -175,26 +170,22 @@ namespace ExtraUtils.Randomizer
                 throw new ArgumentOutOfRangeException($"min > max: {min} > {max}");
             }
 
-            if (max == min)
-            {
-                return min;
-            }
+            long n = max - min;
 
-            if ((max & min) == 0)
+            if(n >= 0)
+            {
+                return (long)(NextDouble() * (n + 1)) + min;
+            }
+            else
             {
                 do
                 {
-                    long n = NextLong();
-
-                    if (n >= min && n <= max)
-                    {
-                        return n;
-                    }
+                    n = NextLong();
                 }
-                while (true);
+                while (n < min || n > max);
             }
 
-            return (long)(NextDouble() * (max - min + 1)) + min;
+            return n;
         }
 
         /// <summary>
@@ -226,33 +217,10 @@ namespace ExtraUtils.Randomizer
         /// <param name="max">The maximun value inclusive.</param>
         /// <returns>A random uint value.</returns>
         /// <exception cref="ArgumentOutOfRangeException">If min is greater than max.</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint NextUInt(uint min, uint max)
         {
-            if (min > max)
-            {
-                throw new ArgumentOutOfRangeException($"min > max: {min} > {max}");
-            }
-
-            if (max == min)
-            {
-                return min;
-            }
-
-            if ((max & min) == 0)
-            {
-                do
-                {
-                    uint n = NextUInt();
-
-                    if (n >= min && n <= max)
-                    {
-                        return n;
-                    }
-                }
-                while (true);
-            }
-
-            return (uint)(NextDouble() * ((max - min) + 1)) + min;
+            return (uint)NextInt((int)min, (int)max);
         }
 
         /// <summary>
@@ -284,33 +252,10 @@ namespace ExtraUtils.Randomizer
         /// <param name="max">The maximun value inclusive.</param>
         /// <returns>A random ulong value.</returns>
         /// <exception cref="ArgumentOutOfRangeException">If min is greater than max.</exception>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public ulong NextULong(ulong min, ulong max)
         {
-            if (min > max)
-            {
-                throw new ArgumentOutOfRangeException($"min > max: {min} > {max}");
-            }
-
-            if (max == min)
-            {
-                return min;
-            }
-
-            if ((max & min) == 0)
-            {
-                do
-                {
-                    ulong n = NextULong();
-
-                    if (n >= min && n <= max)
-                    {
-                        return n;
-                    }
-                }
-                while (true);
-            }
-
-            return (ulong)(NextDouble() * ((max - min) + 1)) + min;
+            return (ulong)NextLong((long)min, (long)max);
         }
 
         /// <summary>

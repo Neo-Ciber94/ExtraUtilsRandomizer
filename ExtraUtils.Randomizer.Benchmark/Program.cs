@@ -2,7 +2,11 @@
 using ExtraUtils.Randomizer;
 using ExtraUtils.Randomizer.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace ExtraUtils.Randomizer.Benchmark
@@ -11,27 +15,46 @@ namespace ExtraUtils.Randomizer.Benchmark
     {
         static void Main()
         {
-            for (long i = 0; i <= 1000; i++)
-            {
-                Console.WriteLine(RNG.Default.NextBits(32));
-            }
+            var rng = new RNG(123);
+
+            Span<char> span = stackalloc char[10];
+
+            rng.NextString(span);
+
+            Console.WriteLine(span.ToString());
         }
     }
 
     public static class Utils
     {
-        static string SpanToString<T>(Span<T> span)
+        public static string SpanToString<T>(Span<T> span)
         {
             StringBuilder sb = new StringBuilder("[");
-            for (int i = 0; i < span.Length; i++)
+            var enumerator = span.GetEnumerator();
+
+            if(enumerator.MoveNext())
             {
-                sb.Append(span[i]);
+                while (true)
+                {
+                    ref T value = ref enumerator.Current;
+                    sb.Append(value.ToString());
+
+                    if (enumerator.MoveNext())
+                    {
+                        sb.Append(", ");
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
+
             sb.Append("]");
             return sb.ToString();
         }
 
-        static bool InRange<T>(T value, T min, T max) where T : IComparable<T>
+        public static bool InRange<T>(T value, T min, T max) where T : IComparable<T>
         {
             return value.CompareTo(min) >= 0 && value.CompareTo(max) <= 0;
         }

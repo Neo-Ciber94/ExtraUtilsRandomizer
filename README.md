@@ -1,7 +1,7 @@
 ## ExtraUtils.Randomizer
 
-This library contains the ``RNG`` struct that provides pseudorandom
-number using **shift-register generators** or **xorshift**.
+Contains the ``RNG`` struct that provides methods for generate pseudorandom
+numbers using **shift-register generators** or **xorshift**.
 
 ------------------
 ### Implementation
@@ -57,8 +57,44 @@ public struct RNG
     public char NextChar(RandomCharKind charKind);
     
     // Pseudorandom buffer generators
-    public NextString(Span<char> destination);
-    public NextString(Span<char> destination, RandomCharKind charKind);
+    public void NextString(Span<char> destination);
+    public void NextString(Span<char> destination, RandomCharKind charKind);
     public void NextBytes(Span<byte> destination); 
 }
+```
+-------------
+
+### Examples
+
+#### - Example #1
+```csharp
+// Creates a new RNG with '123' as seed
+var rng = new RNG(123);
+
+// 4
+Console.WriteLine(rng.NextInt(0, 10));
+
+// -2443414909555492944 
+Console.WriteLine(rng.NextLong()); 
+
+// False
+Console.WriteLine(rng.NextBool()); 
+
+// 0.4347246039820484
+Console.WriteLine(rng.NextDouble());
+```
+
+#### - Example #2
+```csharp
+// Creates a new RNG with '123' as seed
+var rng = new RNG(123);
+
+// Creates a buffer for a pseudorandom string of 10 characters
+Span<char> span = stackalloc char[10];
+
+// Fills the Span<char> with random characters
+rng.NextString(span);
+
+// F2WNYf2c5S
+Console.WriteLine(span.ToString());
 ```
