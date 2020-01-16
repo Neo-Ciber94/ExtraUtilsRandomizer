@@ -473,9 +473,9 @@ namespace ExtraUtils.Randomizer
                 }
             }
 
-            for (; i < length; ++i)
+            for (; length > 0; length--)
             {
-                destination[i] = (byte)(NextInt() & byte.MaxValue);
+                destination[i++] = (byte)(NextInt() & byte.MaxValue);
             }
         }
 

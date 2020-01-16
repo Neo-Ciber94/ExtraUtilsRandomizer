@@ -66,7 +66,7 @@ _________________________________________
 
 ### Examples
 
-#### - Example #1
+Generate pseudorandom numbers
 ```csharp
 // RNG namespace
 using ExtraUtils.Randomizer;
@@ -80,18 +80,21 @@ Console.WriteLine(rng.NextBool());      // False
 Console.WriteLine(rng.NextDouble());    // 0.4347246039820484
 ```
 
-#### - Example #2
+Generate pseudorandom strings or bytes using ``Span<T>``
+
 ```csharp
-// RNG namespace
-using ExtraUtils.Randomizer;
-
-// Creates a new RNG with '123' as seed
-var rng = new RNG(123);
-
 // Creates a buffer for a pseudorandom string of 10 characters
-Span<char> span = stackalloc char[10];
+Span<char> myString = stackalloc char[10];
 
-// Fills the Span<char> with random characters
-rng.NextString(span);
-Console.WriteLine(span.ToString()); // F2WNYf2c5S
+// Fills 'myString' with random characters
+rng.NextString(myString);
+Console.WriteLine(myString.ToString()); // F2WNYf2c5S
+
+// Creates other buffer for pseudorandom bytes
+Span<byte> myBytes = stackalloc byte[5];
+// Fills 'myBytes' with random bytes
+rng.NextBytes(myBytes);
+
+// Helper method BytesToString prints the content of the Span<T>
+Console.WriteLine(BytesToString(span)); // [241, 12, 44, 206, 176]
 ```
